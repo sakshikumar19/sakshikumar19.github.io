@@ -1,0 +1,7 @@
+<This is only a draft>
+
+Key learnings:
+- first step is always prompting
+- choose the right model. Base models are not for chatting
+- Intruct fine tune if needed
+- Inference API is not good for data privacy.
