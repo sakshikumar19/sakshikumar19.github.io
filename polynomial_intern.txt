@@ -5,3 +5,5 @@ Key learnings:
 - choose the right model. Base models are not for chatting
 - Intruct fine tune if needed
 - Inference API is not good for data privacy.
+- Start with RAG, but have a quality annotation process for building up your fine-tuning data set. Fine tune, then try the fine tuned model with RAG. But always keep the feedback loop for building the tuning data.
+- Look up and spend time on SOTA techniques before getting started!
