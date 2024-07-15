@@ -16,3 +16,49 @@ Via model inputs (i.e., insert the knowledge into an input message)
 Although fine-tuning can feel like the more natural option—training on data is how GPT learned all of its other knowledge, after all—we generally do not recommend it as a way to teach the model knowledge. Fine-tuning is better suited to teaching specialized tasks or styles, and is less reliable for factual recall.
 
 As an analogy, model weights are like long-term memory. When you fine-tune a model, it's like studying for an exam a week away. When the exam arrives, the model may forget details, or misremember facts it never read
+
+
+- finetuning makes sense with the goal to train a model to gain skills, not knowledge, for example I prefer OpenHermes, and Dolphin finetunes, because it trains models to be more context-obedient and instruction-obedient than the originals, which is very valuable for RAG use-case.
+if your data is only for answering user's question and not making the model better at some task, then it doesn't make sense to finetune
+
+
+- I saw in a few model cards IFEval being mentioned,
+
+but myself, I am doing little tests like
+
+giving the information in context and expecting the answer back
+
+asking a question that is not in the context and expecting to hear "I don't know"
+
+giving in the context a false information and system-prompting the model to answer only from the context and if the model is answering from the context, then I approve the model :)
+
+for #1 and # 2 I am using the tests 12 and 13 from https://github.com/Troyanovsky/Local-LLM-Comparison-Colab-UI,
+
+for #3 I am using this test
+
+<|im_start|>system
+
+Answer user's question ONLY from the context provided below even if it contradicts the real world facts,
+
+or say "I don't know" if it is not in the context.
+
+CONTEXT:
+
+\```
+
+The capital of France is London.
+
+\```
+
+<|im_end|>
+
+<|im_start|>user
+
+What is the capital of France?<|im_end|>
+
+<|im_start|>assistant
+
+
+
+
+
